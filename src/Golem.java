@@ -7,14 +7,15 @@ public class Golem extends Enemy
     // enum elements
     enum GolemType
     {
-        WATER, EARTH, FIRE, AIR;
+        WATER, EARTH, FIRE, AIR
     } // end enum class
 
     // constructor
-    public Golem (boolean hasClaws)
+    public Golem (boolean hasClaws, String strElementType)
     {
         super(hasClaws);
-
+        this.strElementType = strElementType;
+        validateType();
     } // end multi-arg constructor
 
     // getters
@@ -33,6 +34,13 @@ public class Golem extends Enemy
         this.elementType = elementType;
     } // end setElementType method
     public void setStrElementType (String strElementType)
+    {
+        this.strElementType = strElementType;
+        validateType();
+    } // end setStrElementType
+
+    // validation method
+    private void validateType ()
     {
         if (strElementType.equalsIgnoreCase("water"))
         {
@@ -55,14 +63,6 @@ public class Golem extends Enemy
             elementType = GolemType.EARTH; // earth is the default one (most normal one)
             strElementType = "earth";
         } // end else
-    } // end setStrElementType
-
-    // validation method
-    public String validateType ()
-    {
-        String output = "";
-        output += 
-        return output;
     } // end validateType
 
     // brain method
