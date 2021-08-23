@@ -47,17 +47,20 @@ public class Goblin extends Enemy
     // --- validation method ---
     private void validateClaws ()
     {
-        if (super.getHasClaws() == true) // if it has claws, validate
+        if (super.getHasClaws()) // if it has claws, validate
         {
-            if (numClaws > 10 || numClaws < 0) // ensure it is not over 10 and is not negative
+            if (numClaws > 10 || numClaws <= 0) // ensure it is not over 10 and is not negative
             {
                 numClaws = 3; // default amount of claws per foot is 3 claws
             } // end inner if statement
         } // end outer if statement
-        else // if it does not, set num claws to 0
+        else if (!super.getHasClaws() == false) // if it does not, set num claws to 0
         {
-            numClaws = 0;
-        } // end outer else statement
+            if (numClaws != 0)
+            {
+                numClaws = 0;
+            } // end inner if statement
+        } // end outer else if  statement
 
     } // end validateClaws method
 
@@ -74,6 +77,7 @@ public class Goblin extends Enemy
     // toString
     public String toString ()
     {
+        validateClaws();
         String output = super.toString();
         output += "\nThis goblin has " + numClaws + " claws.\n";
         return output;

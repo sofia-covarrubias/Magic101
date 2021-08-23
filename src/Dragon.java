@@ -48,7 +48,7 @@ public class Dragon extends Enemy
     private void validateWings ()
     {
         // validate number of wings
-        if (wingNum % 0 != 0 || wingNum == 0) // if odd or 0
+        if (wingNum % 2 != 0 || wingNum == 0) // if odd or 0
         {
             wingNum = 2;
         } // end if
