@@ -1,4 +1,4 @@
-public class Enemy
+public abstract class Enemy
 {
     // instance variables
     private boolean hasClaws;

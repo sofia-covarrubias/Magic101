@@ -7,12 +7,12 @@ public class Sorcerer
     private double health;
 
     // constructors
-    public Sorcerer (String name, String spells, int rank, double health)
+    public Sorcerer (String name, String spells)
     {
         this.name = name;
         this.spells = spells;
-        this.rank = rank;
-        this.health = health;
+        rank = 0;
+        health = 100;
     } // end multi-arg constructor
 
     public Sorcerer ()
@@ -59,10 +59,24 @@ public class Sorcerer
         this.health = health;
     } // end setHealth method
 
-    // validation
-
     // brain method
+    public void chooseSpell ()
+    {
+
+    } // end chooseSpell method
+    public void checkRank ()
+    {
+
+    }
 
     // toString method
+    public String toString ()
+    {
+        String output = "\nName: " + name
+                      + "\nSpells: " + spells
+                      + "\nRank: " + rank
+                      + "\nHealth: " + health;
+        return output;
+    } // end toString method
 
 } // end Sorcerer class

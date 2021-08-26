@@ -18,6 +18,7 @@ public class Goblin extends Enemy
         super(hasClaws);
         this.numClaws = 3; // 3 is the default
         this.mischiefLevel = 5;
+        validateClaws();
     } // end empty constructor
 
     // --- setters ---
@@ -54,7 +55,7 @@ public class Goblin extends Enemy
                 numClaws = 3; // default amount of claws per foot is 3 claws
             } // end inner if statement
         } // end outer if statement
-        else if (!super.getHasClaws() == false) // if it does not, set num claws to 0
+        else if (!super.getHasClaws()) // if it does not, set num claws to 0
         {
             if (numClaws != 0)
             {
@@ -79,7 +80,8 @@ public class Goblin extends Enemy
     {
         validateClaws();
         String output = super.toString();
-        output += "\nThis goblin has " + numClaws + " claws.\n";
+        output += "\nThis goblin has " + numClaws + " claws.\n"
+                + "Mischief Level? " + mischiefLevel + "\n";
         return output;
     } // end toString
 

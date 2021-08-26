@@ -18,6 +18,13 @@ public class Golem extends Enemy
         validateType();
     } // end multi-arg constructor
 
+    public Golem (boolean hasClaws)
+    {
+        super(hasClaws);
+        strElementType = "earth";
+        validateType();
+    } // end empty constructor
+
     // getters
     public GolemType getElementType ()
     {
