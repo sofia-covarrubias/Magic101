@@ -3,6 +3,7 @@ public class Dragon extends Enemy
     // instance variables
     private int wingNum; // this needs to be even
     private double wingLen; // can't be negative and is in feet
+    private static int count;
 
     // constructors
     public Dragon (boolean hasClaws, int wingNum, double wingLen)
@@ -11,6 +12,7 @@ public class Dragon extends Enemy
         this.wingNum = wingNum;
         this.wingLen = wingLen;
         validateWings();
+        count++;
     } // end multi-arg constructor
 
     public Dragon (boolean hasClaws)
@@ -18,6 +20,7 @@ public class Dragon extends Enemy
         super(hasClaws);
         wingNum = 2; // 2 wings
         wingLen = 10; // 10 feet
+        count++;
     } // end empty constructor
 
     // getters
@@ -25,10 +28,13 @@ public class Dragon extends Enemy
     {
         return wingNum;
     } // end getter
-
     public double getWingLen ()
     {
         return wingLen;
+    } // end getter
+    public static int getCount ()
+    {
+        return count;
     } // end getter
 
     // setters
@@ -37,7 +43,6 @@ public class Dragon extends Enemy
         this.wingNum = wingNum;
         validateWings();
     } // end setter
-
     public void setWingLen ()
     {
         this.wingLen = wingLen;

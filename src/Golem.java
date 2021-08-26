@@ -3,6 +3,7 @@ public class Golem extends Enemy
     // instance variables
     private GolemType elementType;
     private String strElementType;
+    private static int count;
 
     // enum elements
     enum GolemType
@@ -16,6 +17,7 @@ public class Golem extends Enemy
         super(hasClaws);
         this.strElementType = strElementType;
         validateType();
+        count++;
     } // end multi-arg constructor
 
     public Golem (boolean hasClaws)
@@ -23,6 +25,7 @@ public class Golem extends Enemy
         super(hasClaws);
         strElementType = "earth";
         validateType();
+        count++;
     } // end empty constructor
 
     // getters
@@ -34,6 +37,10 @@ public class Golem extends Enemy
     {
         return strElementType;
     } // end getStrElementType method
+    public static int getCount ()
+    {
+        return count;
+    } // end getter
 
     // setters
     public void setElementType (GolemType elementType)

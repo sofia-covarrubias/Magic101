@@ -22,6 +22,10 @@ public class MagicDriver
 
         System.out.println(player1.toString());
 
+        System.out.println(Dragon.getCount());
+        System.out.println(Goblin.getCount());
+        System.out.println(Golem.getCount());
+
     } // end main method
 
 } // end MagicDriver class

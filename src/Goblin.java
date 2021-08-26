@@ -3,6 +3,7 @@ public class Goblin extends Enemy
     // --- instance variables ---
     private int numClaws; // number of claws per foot
     private int mischiefLevel;
+    private static int count;
 
     // --- constructor ---
     public Goblin (boolean hasClaws, int numClaws, int mischiefLevel)
@@ -11,6 +12,7 @@ public class Goblin extends Enemy
         this.numClaws = numClaws;
         this.mischiefLevel = mischiefLevel;
         validateClaws();
+        count++;
     } // end multi-arg constructor
 
     public Goblin (boolean hasClaws)
@@ -19,6 +21,7 @@ public class Goblin extends Enemy
         this.numClaws = 3; // 3 is the default
         this.mischiefLevel = 5;
         validateClaws();
+        count++;
     } // end empty constructor
 
     // --- setters ---
@@ -43,6 +46,10 @@ public class Goblin extends Enemy
     public int getMischiefLevel ()
     {
         return mischiefLevel;
+    } // end getter
+    public static int getCount ()
+    {
+        return count;
     } // end getter
 
     // --- validation method ---
