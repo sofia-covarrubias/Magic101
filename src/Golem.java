@@ -12,17 +12,17 @@ public class Golem extends Enemy
     } // end enum class
 
     // constructor
-    public Golem (boolean hasClaws, String strElementType)
+    public Golem (boolean hasClaws, double health, String strElementType)
     {
-        super(hasClaws);
+        super(hasClaws, health);
         this.strElementType = strElementType;
         validateType();
         count++;
     } // end multi-arg constructor
 
-    public Golem (boolean hasClaws)
+    public Golem (boolean hasClaws, double health)
     {
-        super(hasClaws);
+        super(hasClaws, health);
         strElementType = "earth";
         validateType();
         count++;
@@ -80,6 +80,19 @@ public class Golem extends Enemy
     } // end validateType
 
     // brain method
+    public double attack ()
+    {
+        if (elementType == GolemType.AIR || elementType == GolemType.WATER)
+        {
+            System.out.println("The " + elementType + " golem ha s attacked with a fist smash! -10% health");
+            return 10;
+        } // end if statement
+        else
+        {
+            System.out.println("The " + elementType + " golem has attacked by stomping on you! -25% health");
+            return 25;
+        } // end else clause
+    } // end attack method
 
     // toString method
     public String toString ()

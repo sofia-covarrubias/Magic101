@@ -6,18 +6,18 @@ public class Dragon extends Enemy
     private static int count;
 
     // constructors
-    public Dragon (boolean hasClaws, int wingNum, double wingLen)
+    public Dragon (boolean hasClaws, double health, int wingNum, double wingLen)
     {
-        super(hasClaws);
+        super(hasClaws, health);
         this.wingNum = wingNum;
         this.wingLen = wingLen;
         validateWings();
         count++;
     } // end multi-arg constructor
 
-    public Dragon (boolean hasClaws)
+    public Dragon (boolean hasClaws, double health)
     {
-        super(hasClaws);
+        super(hasClaws, health);
         wingNum = 2; // 2 wings
         wingLen = 10; // 10 feet
         count++;
@@ -38,12 +38,12 @@ public class Dragon extends Enemy
     } // end getter
 
     // setters
-    public void setWingNum ()
+    public void setWingNum (int wingNum)
     {
         this.wingNum = wingNum;
         validateWings();
     } // end setter
-    public void setWingLen ()
+    public void setWingLen (double wingLen)
     {
         this.wingLen = wingLen;
         validateWings();
@@ -64,6 +64,14 @@ public class Dragon extends Enemy
     } // end checkWings method
 
     // brain method
+    @Override
+    public double attack ()
+    {
+        double damage = 0;
+        damage = ((wingNum/2) * wingLen);
+        System.out.println("The dragon has attacked by using their fire breath! -" + damage + "% damage.");
+        return damage;
+    } // end fireAttack method
 
     // toString method
     public String toString ()

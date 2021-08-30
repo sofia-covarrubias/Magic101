@@ -6,18 +6,18 @@ public class Goblin extends Enemy
     private static int count;
 
     // --- constructor ---
-    public Goblin (boolean hasClaws, int numClaws, int mischiefLevel)
+    public Goblin (boolean hasClaws, double health, int numClaws, int mischiefLevel)
     {
-        super(hasClaws);
+        super(hasClaws, health);
         this.numClaws = numClaws;
         this.mischiefLevel = mischiefLevel;
         validateClaws();
         count++;
     } // end multi-arg constructor
 
-    public Goblin (boolean hasClaws)
+    public Goblin (boolean hasClaws, double health)
     {
-        super(hasClaws);
+        super(hasClaws, health);
         this.numClaws = 3; // 3 is the default
         this.mischiefLevel = 5;
         validateClaws();
@@ -81,6 +81,13 @@ public class Goblin extends Enemy
     } // end validateLevel method
 
     // --- brain methods ---
+    public double attack ()
+    {
+        double damage;
+        damage = numClaws * mischiefLevel;
+        System.out.println("The goblin has attacked using its claw attack! -" + damage + "% damage!");
+        return damage;
+    }
 
     // toString
     public String toString ()
